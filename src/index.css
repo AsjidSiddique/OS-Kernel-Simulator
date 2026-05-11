@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --viro-blue:      #00BFFF;
+  --viro-purple:    #8B5CF6;
+  --viro-orange:    #F97316;
+  /* dark defaults */
+  --viro-bg:        #0F172A;
+  --viro-bgDeep:    #080E1C;
+  --viro-bgCard:    #1E293B;
+  --viro-bgInput:   #1E293B;
+  --viro-border:    #334155;
+  --viro-text:      #F1F5F9;
+  --viro-textMuted: #94A3B8;
+  --viro-textSub:   #64748B;
+  --viro-navBg:     #080E1C;
+  --viro-navBorder: #1E293B;
+  --viro-featureBg: #1E293B;
+  --viro-featureBorder: #334155;
+  --viro-sectionBg: #0F172A;
+  --viro-searchBg:  #0F172A;
+  --viro-productWhite: #1E293B;
+}
+
+[data-theme="light"] {
+  --viro-bg:        #F0F4F8;
+  --viro-bgDeep:    #E2E8F0;
+  --viro-bgCard:    #FFFFFF;
+  --viro-bgInput:   #FFFFFF;
+  --viro-border:    #CBD5E1;
+  --viro-text:      #0F172A;
+  --viro-textMuted: #334155;
+  --viro-textSub:   #64748B;
+  --viro-navBg:     #FFFFFF;
+  --viro-navBorder: #E2E8F0;
+  --viro-featureBg: #FFFFFF;
+  --viro-featureBorder: #CBD5E1;
+  --viro-sectionBg: #F0F4F8;
+  --viro-searchBg:  #F0F4F8;
+  --viro-productWhite: #FFFFFF;
+}
+
+body {
+  background-color: var(--viro-bg);
+  color: var(--viro-text);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  margin: 0; padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.font-display { font-family: 'Outfit', system-ui, sans-serif; }
+
+.gradient-text {
+  background: linear-gradient(135deg, #00BFFF 0%, #8B5CF6 50%, #F97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.viro-card {
+  background: var(--viro-bgCard);
+  border: 1px solid var(--viro-border);
+  border-radius: 16px;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+input, textarea, select {
+  background: var(--viro-bgInput) !important;
+  border: 1px solid var(--viro-border) !important;
+  color: var(--viro-text) !important;
+  border-radius: 12px;
+  padding: 11px 14px;
+  width: 100%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, background 0.35s ease;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #8B5CF6 !important;
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.15);
+}
+input::placeholder, textarea::placeholder { color: var(--viro-textSub); }
+select option { background: var(--viro-bgCard); color: var(--viro-text); }
+
+.btn-primary {
+  background: linear-gradient(135deg, #00BFFF, #8B5CF6, #F97316);
+  color: white; font-weight: 600;
+  border-radius: 12px; padding: 12px 24px;
+  border: none; cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-primary:hover  { opacity: 0.92; }
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--viro-border);
+  color: var(--viro-textMuted);
+  border-radius: 10px; padding: 8px 16px;
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: #8B5CF6; color: var(--viro-text); }
+
+/* Animations */
+@keyframes slideUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+@keyframes shimmer  { 0%,100%{opacity:.4} 50%{opacity:.75} }
+@keyframes popIn    { from{opacity:0;transform:scale(0.82) translateY(24px)} to{opacity:1;transform:scale(1) translateY(0)} }
+@keyframes toastIn  { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes ticker   { 0%{transform:translateX(100vw)} 100%{transform:translateX(-100%)} }
+@keyframes gradShift{ 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+@keyframes logoFloat{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+@keyframes navSlideIn { from{opacity:0;transform:translateX(-6px)} to{opacity:1;transform:translateX(0)} }
+@keyframes statPop  { from{opacity:0;transform:scale(0.88) translateY(8px)} to{opacity:1;transform:scale(1) translateY(0)} }
+@keyframes tabFade  { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+@keyframes loopScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+@keyframes kenBurns { 0%{transform:scale(1)} 50%{transform:scale(1.04) translateX(-0.5%)} 100%{transform:scale(1)} }
+@keyframes headlineSlide { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+.slide-up  { animation: slideUp  0.4s cubic-bezier(.4,0,.2,1) both; }
+.fade-in   { animation: fadeIn   0.3s ease both; }
+.skeleton  { animation: shimmer  1.5s ease-in-out infinite; background: var(--viro-bgCard); border-radius: 8px; }
+
+::-webkit-scrollbar        { width:4px; height:4px; }
+::-webkit-scrollbar-track  { background: var(--viro-bgDeep); }
+::-webkit-scrollbar-thumb  { background: var(--viro-border); border-radius:2px; }
+.scrollbar-hide::-webkit-scrollbar { display:none; }
+.scrollbar-hide { -ms-overflow-style:none; scrollbar-width:none; }

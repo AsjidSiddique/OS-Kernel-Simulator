@@ -1,0 +1,25 @@
+node_modules/
+dist/
+.env
+*.local
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore parent directories
+../**
+../../**
+
+# Ignore Windows system files
+NTUSER.DAT*
+ntuser.dat*
+ntuser.ini
+
+# Ignore VS Code & config
+.vscode/
+.config/
+.copilot/
+
+# Ignore zip files
+*.zip
+*.tmp
